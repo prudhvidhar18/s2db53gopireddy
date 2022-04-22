@@ -2,24 +2,18 @@ extends layout
 
 block content
   h1= title
+  p Hi #{title}
   - let items = results
-   div(class = "container-fluid")
-    div(class = "row m-1")
-     each item in items  
-      - let destination = `dispatch(\"/mobile/update?id=${mobile._id}\")`
-      //- let destination1 = `dispatch(\"/Season/create\")`
-      //- let destination2 = `dispatch(\"/Season/detail?id=${item._id}\")`
-      //- let destination3 = `dispatch(\"/Season/delete?id=${item._id}\")`
-      div(class="row-sm-2", class="m-1") mobile_name: #{mobiles.mobile_brand}(#{mobiles.mobile_cost}) is #{mobiles.mobile_color}  
-        button.btn( class="btn-primary ml-1", onclick= destination, style = "margin:8px;") Update
-        //-button.btn( class="btn-primary ml-1", onclick= destination1, style = "margin:8px;" ) Create
-        //-button.btn( class="btn-primary ml-1", onclick= destination2, style = "margin:8px;" ) Detail
-        //-button.btn( class="btn-primary ml-1", onclick= destination3, style = "margin:8px;" ) Delete
+  div(class="container-fluid")
+    div(class="row")
+      each mobiles, index in items
+        div(class="col-sm-2" onclick=`buy(${index+1})`) #{mobiles._id} #{mobiles.mobile__brand} - #{mobiles.mobile_cost} - $#{mobiles.mobile_color}
+         button.btn( class="btn-primary ml-1", onclick= `dispatch(\"/mobiles/update/?id=${mobiles._id}\")` ) Update
   script.
-    function buy(itemNo){
-        alert(`You purchased item ${itemNo+1}`)
+    function buy(index){
+      alert(`You purchased item ${index}`);
     }
-  script. 
-    function dispatch(path){ 
-        window.location.href=path 
+    function dispatch(path){
+    window.location.href=path
     }
+    
