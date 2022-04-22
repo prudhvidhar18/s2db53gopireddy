@@ -7,8 +7,8 @@ block content
   div(class="container-fluid")
     div(class="row")
       each mobiles, index in items
-        div(class="col-sm-2" onclick=`buy(${index+1})`) #{mobiles._id} #{mobiles.mobile__brand} - #{mobiles.mobile_cost} - $#{mobiles.mobile_color}
-         button.btn( class="btn-primary ml-1", onclick= `dispatch(\"/mobiles/update/?id=${mobiles._id}\")` ) Update
+        div(class="col-sm-2" onclick=`buy(${index+1})`) #{mobiles._name} #{mobiles.mobile__brand} - #{mobiles.mobile_cost} - $#{mobiles.mobile_color}
+         button.btn( class="btn-primary ml-1", onclick= `dispatch(\"/mobiles/update/?id=${mobiles._name}\")` ) Update
   script.
     function buy(index){
       alert(`You purchased item ${index}`);
