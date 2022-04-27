@@ -57,8 +57,8 @@ exports.mobile_update_put = async function (req, res) {
         let toUpdate = await Mobile.findById(req.params.id)
         // Do updates of properties
         if (req.body.mobile_brand) toUpdate.mobile_brand = req.body.mobile_brand;
-        if (req.body.mobile_color)  toUpdate.mobile_color = req.body.mobile_color;
-        if (req.body.mobile_cost) toUpdate.mobile_cost = req.body.mobile_cost;
+        if (req.body.mobile_cost)  toUpdate.mobile_color = req.body.mobile_color;
+        if (req.body.mobile_color) toUpdate.mobile_cost = req.body.mobile_cost;
         let result = await toUpdate.save();
         console.log("Sucess " + result)
         res.send(result)

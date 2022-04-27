@@ -13,8 +13,8 @@ const mobileSchema = mongoose.Schema({
     },
     mobile_cost: { 
         type: Number, 
-        min:[20, 'Minimum of 20$ but, got {VALUE}'], 
-        max:50000
+        min:[15, 'Minimum of 15$ but, got {VALUE}'], 
+        max:40000
     }
 })
 module.exports = mongoose.model("Mobile", mobileSchema)
