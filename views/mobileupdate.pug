@@ -1,9 +1,7 @@
 extends layout
 block content
   h1= title
-  if {toshow == null}
-   h2 No instance to delete 
-   else
+
   - let mobileid = toShow._id
   - let mobile_brand = toShow.mobile_brand
   - let mobile_cost = toShow.mobile_cost
